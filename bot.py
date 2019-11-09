@@ -26,7 +26,7 @@ def run():
     ]
   
     client = discord.Client()
-    client.run(s.discord_token)
+    client.run(token=s.discord_token)
 
     @client.event
     async def on_ready():
