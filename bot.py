@@ -24,7 +24,7 @@ def run():
         "You see this fictional character? I'm not afraid to admit that I've lost liters of cum to this character of mere fantasy. Isn't it funny how not even real women arouse me like she does? I have killed millions of my offspring to the thought of having an intercourse with a cartoon"
     ]
     token = s.discord_token
-    print(token)
+    print(f"TOKEN IS {token}")
     client = discord.Client()
     @client.event
     async def on_ready():
