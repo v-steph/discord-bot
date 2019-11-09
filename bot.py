@@ -5,6 +5,7 @@ import random
 import time
 
 import discord
+import asyncio
 
 import settings as s
 
