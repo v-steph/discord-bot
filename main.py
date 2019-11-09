@@ -2,6 +2,7 @@
 import logging
 import os
 import random
+import time
 
 import discord
 
@@ -35,10 +36,9 @@ def run():
         if msg.author == client.user:
             return
     
-        triggers = ["anime", "uwu", "owo", "weeb", "chan", "kun", "senpai", "sempai",
-                "hentai"]
-        
-        if "uwu" in msg.content or "weeb" in msg.content:
+        triggers = set(month.lower() for month in ("anime", "uwu", "owo", "weeb", "chan", "kun", "senpai", "sempai",
+                "hentai"))
+        if msg.content.lower() in triggers:
             response = random.choice(messages)
             await msg.channel.send(response)
 
