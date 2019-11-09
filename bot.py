@@ -26,7 +26,6 @@ def run():
     ]
   
     client = discord.Client()
-    client.run(s.discord_token)
 
     @client.event
     async def on_ready():
@@ -44,7 +43,7 @@ def run():
             response = random.choice(messages)
             await msg.channel.send(response)
 
-    client.run(token)
+    client.run(s.discord_token)
 
 while True:
     run()
