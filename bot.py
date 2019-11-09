@@ -9,7 +9,7 @@ import discord
 import settings as s
 
 def run():
-    """on_ready
+    """on_ready heroku apps:create discord-bot
     on_message"""
     messages = [
         "I feel so bad for people who unironically like anime. Like, they didn't choose to be born with an IQ of 20 in a home with unloving parents. Imagine all the bullying they must experience at home, at school, and at the special services daycare. Let's stop bullying them, guys. They may be too retarded to understand that's what we're doing, but that doesn't mean we should pick on them. Thank you",
