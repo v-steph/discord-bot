@@ -24,9 +24,10 @@ def run():
         "(◕‿◕✿) Dear Weebs in the chat, you are sugoi. Whatever is going on in your kokoro right now, please know that you are kawaii and your story is not a filler. You are loved (◕‿◕✿)",
         "You see this fictional character? I'm not afraid to admit that I've lost liters of cum to this character of mere fantasy. Isn't it funny how not even real women arouse me like she does? I have killed millions of my offspring to the thought of having an intercourse with a cartoon"
     ]
-    token = s.discord_token
-    print(f"TOKEN IS {token}")
+  
     client = discord.Client()
+    client.run(s.discord_token)
+
     @client.event
     async def on_ready():
         print(f'{client.user.name} has connected to Discord!')
