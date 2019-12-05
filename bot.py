@@ -9,7 +9,7 @@ import asyncio
 
 import settings as s
 
-def run():
+async def main():
     """on_ready
     on_message"""
     messages = [
@@ -24,15 +24,16 @@ def run():
         "(◕‿◕✿) Dear Weebs in the chat, you are sugoi. Whatever is going on in your kokoro right now, please know that you are kawaii and your story is not a filler. You are loved (◕‿◕✿)",
         "You see this fictional character? I'm not afraid to admit that I've lost liters of cum to this character of mere fantasy. Isn't it funny how not even real women arouse me like she does? I have killed millions of my offspring to the thought of having an intercourse with a cartoon"
     ]
-  
+async def commands():
     client = discord.Client()
 
     @client.event
-    async def on_ready():
+    def on_ready():
         print(f'{client.user.name} has connected to Discord!')
 
     @client.event
-    async def on_message(msg):
+    def on_message(msg):
+        """takes in user msg, searches for word in that msg"""
         # prevent bot msg recursion
         if msg.author == client.user:
             return
@@ -52,7 +53,7 @@ def run():
             ))
         for t in triggers:
             if contains_word(msg, t):
-                response = random.choice(messages)
+                response = random.choice(triggers)
                 await msg.channel.send(response)
 
 
@@ -62,6 +63,6 @@ def run():
     client.run(s.discord_token)
 
 while True:
-    run()
+    asyncio.run(main())
     time.sleep(300)
 
