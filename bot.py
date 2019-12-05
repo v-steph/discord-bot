@@ -32,7 +32,7 @@ async def commands():
         print(f'{client.user.name} has connected to Discord!')
 
     @client.event
-    def on_message(msg):
+    async def on_message(msg):
         """takes in user msg, searches for word in that msg"""
         # prevent bot msg recursion
         if msg.author == client.user:
