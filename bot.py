@@ -9,7 +9,7 @@ import asyncio
 
 import settings as s
 
-def run():
+async def run():
     """on_ready
     on_message"""
     messages = [
@@ -62,6 +62,6 @@ def run():
     client.run(s.discord_token)
 
 while True:
-    run()
+    await run()
     time.sleep(300)
 
