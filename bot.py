@@ -37,11 +37,27 @@ def run():
         if msg.author == client.user:
             return
     
-        triggers = set(month.lower() for month in ("anime", "uwu", "owo", "weeb", "chan", "kun", "senpai", "sempai",
-                "hentai"))
-        if msg.content.lower() in triggers:
-            response = random.choice(messages)
-            await msg.channel.send(response)
+        triggers = set(opt.lower() for opt in (
+            "anime", 
+            "uwu", 
+            "owo", 
+            "weeb", 
+            "chan", 
+            "kun", 
+            "senpai", 
+            "sempai", 
+            "kokoro", 
+            "doki",
+            "hentai"
+            ))
+        for t in triggers:
+            if contains_word(msg, t):
+                response = random.choice(messages)
+                await msg.channel.send(response)
+
+
+    def contains_word(s, w):
+        return (' ' + w + ' ') in (' ' + s + ' ')
 
     client.run(s.discord_token)
 
