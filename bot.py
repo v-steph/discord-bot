@@ -57,7 +57,7 @@ def run():
 
 
     def contains_word(s, w):
-        return (' ' + w + ' ') in (' ' + s + ' ')
+        return (' ' + str(w) + ' ') in (' ' + s + ' ')
 
     client.run(s.discord_token)
 
