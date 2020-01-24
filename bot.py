@@ -1,4 +1,5 @@
-"""Main module of the discord bot"""
+"""Scan incoming chat messages for trigger words. when triggered reply with string from .txt file."""
+
 import logging
 import os
 import random
@@ -29,11 +30,11 @@ async def on_ready():
 @client.event
 async def on_message(msg):
     """check message for trigger word"""
-    # prevent bot msg recursion
+    # prevent bot spamming
     if msg.author == client.user:
         return
-
-    triggers = set(opt.lower() for opt in (
+    # behold. the hackiest transformation in history.
+    triggers = set(opt.lower().center(len(opt)+2) for opt in (
         "anime", 
         "uwu", 
         "owo", 
