@@ -4,9 +4,10 @@ import os
 import random
 import time
 
-import discord
+from discord.ext import commands
 
 import settings as s
+
 
 def run():
     """on_ready
@@ -23,26 +24,41 @@ def run():
         "(◕‿◕✿) Dear Weebs in the chat, you are sugoi. Whatever is going on in your kokoro right now, please know that you are kawaii and your story is not a filler. You are loved (◕‿◕✿)",
         "You see this fictional character? I'm not afraid to admit that I've lost liters of cum to this character of mere fantasy. Isn't it funny how not even real women arouse me like she does? I have killed millions of my offspring to the thought of having an intercourse with a cartoon"
     ]
+   
     token = s.discord_token
-    client = discord.Client()
-    print(token)
-    @client.event
+    # init bot
+    bot = commands.Bot(command_prefix='!')
+
+
+    @bot.event
     async def on_ready():
-        print(f'{client.user.name} has connected to Discord!')
+        print(f'{bot.user.name} has connected to Discord!')
 
-    @client.event
+    @bot.event
     async def on_message(msg):
-        # prevent bot msg recursion
-        if msg.author == client.user:
-            return
-    
-        triggers = set(month.lower() for month in ("anime", "uwu", "owo", "weeb", "chan", "kun", "senpai", "sempai",
-                "hentai"))
-        if msg.content.lower() in triggers:
-            response = random.choice(messages)
-            await msg.channel.send(response)
+        # term = "message" #term we want to search for
+        # input = raw_input() #read input from user
 
-    client.run(token)
+        # words = input.split() #split the sentence into individual words
+
+        # if term in words: #see if one of the words in the sentence is the word we want
+        #     do_stuff()
+        words = msg.content.lower.split()
+        terms = (term for term in ("anime", "uwu", "owo", "weeb", "chan", "kun", "senpai", "sempai",
+                "hentai"))
+        for term in terms:
+            if term in words:
+                response = random.choice(messages)
+                await msg.channel.send(response)
+    
+
+    # future 
+    # @bot.command(name='waifu')
+    # def on_command():
+    #     """waifu get set delete"""
+    #     pass
+
+    bot.run(token)
 
 while True:
     run()
