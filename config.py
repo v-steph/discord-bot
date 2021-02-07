@@ -1,4 +1,4 @@
-"""Settings to map env vars"""
+"""load the configuration from a .env file when it is present (e.g. in development) while remaining configurable via the environment:"""
 import os
 
 from dotenv import load_dotenv
