@@ -1,4 +1,3 @@
-"""Main module of the discord bot"""
 import logging
 import os
 import random
@@ -6,7 +5,7 @@ import time
 
 from discord.ext import commands
 
-import settings as s
+import config
 
 
 def run():
@@ -25,7 +24,6 @@ def run():
         "You see this fictional character? I'm not afraid to admit that I've lost liters of cum to this character of mere fantasy. Isn't it funny how not even real women arouse me like she does? I have killed millions of my offspring to the thought of having an intercourse with a cartoon"
     ]
    
-    token = s.discord_token
     # init bot
     bot = commands.Bot(command_prefix='!')
 
@@ -58,7 +56,7 @@ def run():
     #     """waifu get set delete"""
     #     pass
 
-    bot.run(token)
+    bot.run(config.discord_token)
 
 while True:
     run()
